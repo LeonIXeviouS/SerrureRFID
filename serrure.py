@@ -28,7 +28,7 @@ def turn_low (gpio) :
 def scan_badge():
     print("En attente de badge...")
     rc522.wait_for_tag()
-    print("Badge detected")
+    print("Badge detecté")
 
 def add_log(ID, door):
     os.chdir('/home/pi/')
@@ -48,7 +48,7 @@ def add_log(ID, door):
 
 def setAngle(angle):
     duty = angle / 18 + 2
-    GPIO.output(11, True)
+    GPIO.output(SERVO, True)
     pwm.ChangeDutyCycle(duty)
     time.sleep(0.5)
 
@@ -59,6 +59,10 @@ def open_door():
     setAngle(0)
     time.sleep(1)
     pwm.stop()
+
+def setDown():
+    turn_low(LED_RED)
+    turn_low(LED_GREEN)
 
 init()
 
@@ -84,24 +88,21 @@ while True :
             print('UID : {}'.format(uid))
             card = format(uid)
             cardnow = str(re.sub('[, ]', '', card))
-            print('cardnow : '+cardnow)
             i = 0
             z = 0
             for c in cardAuto:
                 i += 1 
                 if cardnow == c:
                     add_log(cardnow, True)
-                    print("Autorizated")
-                    pwm=GPIO.PWM(11, 50)
-                    open_door()
+                    print("Badge Autorisé")
+                    pwm=GPIO.PWM(SERVO, 50)
                     turn_high(LED_GREEN)
-                    time.sleep(3)
+                    open_door()
                     turn_low(LED_GREEN)
                 elif i == len(cardAuto) and cardnow != c:
                     add_log(cardnow, False)
-                    print("Nop poto")
+                    print("Bad Refusé")
                     turn_high(LED_RED)
                     time.sleep(3)
                     turn_low(LED_RED)
-    turn_low(LED_RED)
-    turn_low(LED_GREEN)
+    setDown()
