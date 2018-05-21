@@ -1,0 +1,24 @@
+<nav>
+    <div class="nav-wrapper">
+        <a href="{{ url_for('index') }}" class="brand-logo left">
+            <img style="max-width: 32px" src="{{ url_for('static', filename='icones/key.png') }}" alt="">
+            Serrure connectée
+        </a>
+        <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            {% if user == true %}
+                <li><a class="" href="{{ url_for('logout') }}">{{"Déconnexion"|upper}}</a></li>
+            {% else %}
+                <li><a class="" href="{{ url_for('login') }}">{{"Connexion"|upper}}</a></li>
+            {% endif %}
+        </ul>
+    </div>
+      <ul class="side-nav" id="mobile-demo">
+            {% if user == true %}
+                <li><a class="" href="{{ url_for('logout') }}">{{"Déconnexion"|upper}}</a></li>
+            {% else %}
+                <li><a class="" href="{{ url_for('login') }}">{{"Connexion"|upper}}</a></li>
+            {% endif %}
+      </ul>
+    </div>
+</nav>

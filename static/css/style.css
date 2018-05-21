@@ -1,0 +1,24 @@
+.brand-logo {
+    margin-right: 2em;
+}
+
+#nav-mobile {
+    margin-left: 2em;
+}
+
+#loginForm {
+    padding: 20px;
+}
+
+.iconAdmin:hover {
+    opacity: 0.5;
+}
+
+#url {
+    background-color: #f9f9f9;
+    padding: 5px;
+    border-radius: 5px;
+}
+    input:focus {
+        outline: none;
+    }
