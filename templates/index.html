@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col s12 m6" href="#!" style=" padding: 1em;">
+            <div class="card-panel green darken-1 hoverable">
+                <a href="{{ url_for('openDoor') }}" class="valign-wrapper" style="min-height: 100px;">
+                    <h4 class="white-text" style="margin: auto">
+                        OUVRIR LA SERRURE
+                    </h4>
+                </a>
+            </div>
+        </div>
+        <div class="col s12 m6" href="#!" style=" padding: 1em;">
+            <div class="card-panel teal darken-1 hoverable">
+                <a href="{{ url_for('showLogs') }}" class="valign-wrapper" style="min-height: 100px;">
+                    <h4 class="white-text" style="margin: auto">
+                        VOIR LES LOGS
+                    </h4>
+                </a>
+            </div>
+        </div>
+        <div class="col s12 m6" href="#!" style=" padding: 1em;">
+            <div class="card-panel amber darken-1 hoverable">
+                <a href="#!" class="valign-wrapper" style="min-height: 100px;">
+                    <h4 class="white-text" style="margin: auto">
+                        ÉDITER LES BADGES
+                    </h4>
+                </a>
+            </div>
+        </div>
+        <div class="col s12 m6" href="#!" style=" padding: 1em;">
+            <div class="card-panel blue-grey darken-1 hoverable">
+                <a href="#!" class="valign-wrapper" style="min-height: 100px;">
+                    <h4 class="white-text" style="margin: auto">
+                        // ?
+                    </h4>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
